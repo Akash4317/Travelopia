@@ -1,0 +1,113 @@
+.footer {
+    background-color: #3a4646;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+}
+
+.foot_one {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about {
+    display: flex;
+    margin-top: 5px;
+    gap: 2px;
+    font-size: 22px;
+    max-width: 28%;
+    flex-direction: column;
+    color: rgb(226, 225, 225);
+}
+
+.contact {
+    color: aliceblue;
+}
+
+.akash-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.contact th {
+    color: rgba(193, 203, 156, 1);
+    font-size: 16px;
+    margin-top: 10px;
+    padding-right: 95px;
+    padding-bottom: 25px;
+}
+
+.contact tr {
+    font-size: 14px;
+}
+
+.contact td {
+    padding-bottom: 10px;
+    color: #ffffff;
+}
+
+.contact td:hover {
+    color: #4f88b1;
+    cursor: pointer;
+}
+
+.credit {
+    text-align: center;
+    display: flex;
+    padding: 35px 155px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+}
+
+.box .social-icon {
+    margin-left: 15px;
+    font-size: 26px;
+    color: #b5b5b5;
+    transition: transform 0.3s ease-in-out;
+}
+
+.box .social-icon:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+.credit_tag {
+    color: #cecece;
+}
+
+@media (max-width: 768px) {
+    .foot_one {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about {
+        margin-top: 25px;
+        max-width: 80%;
+        font-size: large;
+    }
+    .akash-logo {
+        width: 300px;
+        height: auto;
+    }
+    .contact th {
+        padding-right: 50px;
+    }
+    .contact td {
+        padding-bottom: 8px;
+    }
+    .getUs {
+        font-size: 20px;
+    }
+    .google_play img {
+        width: 150px;
+    }
+    .box .social-icon {
+        font-size: 22px;
+    }
+}

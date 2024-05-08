@@ -1,0 +1,142 @@
+.login_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2016/12/holiday-winter-city.jpg?resize=1250,1120");
+    background-size: cover;
+    background-position: center;
+}
+
+.login-form {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(3px);
+    text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 0px;
+    /* Adjust this value to add space between navbar and form */
+}
+
+.navbar_div {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.login-title {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.input-box {
+    margin: 20px 0;
+    position: relative;
+}
+
+.input-box input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 12px 12px 12px 45px;
+    border-radius: 99px;
+    outline: 3px solid transparent;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #0a57a7;
+    font-weight: 800;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.15);
+}
+
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.input-box input:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.input-box input::-ms-reveal {
+    filter: invert(100%);
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.remember-forgot-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+.icon {
+    font-size: 40px;
+    border-radius: 50%;
+    background-color: #0a57a7;
+    padding: 10px;
+}
+
+.remember-forgot-box label {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember-forgot-box input {
+    accent-color: white;
+    cursor: pointer;
+}
+
+.remember-forgot-box a {
+    color: white;
+    text-decoration: none;
+}
+
+.remember-forgot-box a:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px 0;
+    background: #0a57a7;
+    border: none;
+    border-radius: 99px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #0B87EC;
+}
+
+.register {
+    margin-top: 15px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.register a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
