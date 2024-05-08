@@ -1,11 +1,27 @@
-import { useEffect, useState } from 'react'
-import Navbar from '../Components/Navbar'
+import { useEffect, useState } from 'react';
+import Navbar from '../Components/Navbar';
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
-import "../Styles/admin.css"
+import "../Styles/admin.css";
 import axios from 'axios';
 
-const Admin = () => {
-    const [enquiries, setEnquiries] = useState([]);
+interface Admin {
+    _id: string;
+    comment: string;
+    createdAt: string;
+    destination: string;
+    duration: number;
+    email: string;
+    fullName: string;
+    interest: string;
+    numberOfTravelers: number;
+    phone_number: string;
+    travelDate: string;
+    updatedAt: string;
+    userId: string;
+}
+
+const Admin: React.FC = () => {
+    const [enquiries, setEnquiries] = useState<Admin[]>([]); // Specify the type of enquiries
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState<boolean>(true);
     const [enquiriesPerPage] = useState(8);
@@ -59,10 +75,10 @@ const Admin = () => {
                                     <Text fontSize="xl" fontWeight="bold" mb={2}>Trip to {enquiry.destination}</Text>
                                     <Text><strong>Interest:</strong> {enquiry.interest}</Text>
                                     <Text><strong>Duration:</strong> {enquiry.duration} days</Text>
-                                    <Text><strong>Travelers:</strong> {enquiry.traveller}</Text>
-                                    <Text><strong>Budget:</strong> {enquiry.budget}</Text>
+                                    <Text><strong>Travelers:</strong> {enquiry.numberOfTravelers}</Text>
+                                    <Text><strong>Email:</strong> {enquiry.email}</Text>
                                     <Text><strong>UserID:</strong> {enquiry.userId}</Text>
-                                    <Text><strong>Travel Date:</strong> {new Date(enquiry.when).toLocaleDateString()}</Text>
+                                    <Text><strong>Travel Date:</strong> {new Date(enquiry.travelDate).toLocaleDateString()}</Text>
                                     <Text><strong>Request Date:</strong> {new Date(enquiry.createdAt).toLocaleDateString()}</Text>
                                 </Box>
                             </Box>
