@@ -1,0 +1,32 @@
+.enquiry-banner {
+    height: 50vh;
+    background-image: url("../assets/admin_pic.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.enquiries-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.enquiries-row {
+    /* margin-top: 20px; */
+    margin: 80px 6%;
+}
+
+.enquiry-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enquiry-card p {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+.enquiry-card strong {
+    color: #555;
+}

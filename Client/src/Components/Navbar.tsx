@@ -36,7 +36,7 @@ const Navbar = () => {
                 <img src={logo} alt="Logo" className="logo" />
             </div>
             {auth.isAuth ? <Link to="/" className="nav-link"><Heading as='h2' size='xl' >Home</Heading></Link> : <Link to="/" className="nav-link"><Heading as='h2' size='xl' onClick={handleLoginToast} >Home</Heading></Link>}
-            {auth.role === 'admin' && <Link to="/admin" className="nav-link"><Heading as='h2' size='xl' >admin</Heading></Link>}
+            {auth.role === 'admin' && <Link to="/admin" className="nav-link"><Heading as='h2' size='xl' >Enqueries</Heading></Link>}
             <div>
                 {auth.isAuth ?
                     <Button colorScheme='red' size='md' onClick={handleLogout}>

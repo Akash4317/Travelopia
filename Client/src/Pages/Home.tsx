@@ -17,21 +17,7 @@ const Home = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        if (destination && when && interest && duration && traveller && budget) {
-            toast({
-                title: 'Your query has been submitted , we will reach out to you soon',
-                position: 'top',
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-            });
-            setDestination('');
-            setWhen('');
-            setInterest('');
-            setDuration('');
-            setTraveller('');
-            setBudget('');
-        } else {
+        if (!destination || !when || !interest || !duration || !traveller || !budget) {
             toast({
                 title: 'Please fill all the required fields',
                 position: 'top',
@@ -40,8 +26,6 @@ const Home = () => {
                 isClosable: true,
             });
         }
-
-
         const data = {
             destination,
             when,
@@ -52,8 +36,31 @@ const Home = () => {
         };
 
         try {
-            const response = await axios.post('https://traveopia-backend.onrender.com/enquiry', data);
-            console.log('Response:', response.data);
+            const token = localStorage.getItem('token');
+            if (token) {
+                const response = await axios.post('https://traveopia-backend.onrender.com/enquiry', data, {
+                    headers: {
+                        Authorization: token
+                    }
+                });
+                if (response.status === 201) {
+                    toast({
+                        title: 'Your query has been submitted , we will reach out to you soon',
+                        position: 'top',
+                        status: 'success',
+                        duration: 3000,
+                        isClosable: true,
+                    });
+                    setDestination('');
+                    setWhen('');
+                    setInterest('');
+                    setDuration('');
+                    setTraveller('');
+                    setBudget('');
+                }
+            } else {
+                console.error('JWT token not found please login!');
+            }
         } catch (error) {
             console.error('Error:', error);
         }

@@ -35,7 +35,7 @@ const Register = () => {
         } catch (err) {
             console.log(err);
             toast({
-                title: 'Login failed',
+                title: 'Registration failed',
                 position: 'top',
                 description: 'Invalid email or password',
                 status: 'error',

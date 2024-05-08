@@ -17,6 +17,7 @@ const Login = () => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
+
         try {
             const response = await axios.post('https://traveopia-backend.onrender.com/login', {
                 email,
@@ -32,7 +33,7 @@ const Login = () => {
                     role
                 });
 
-                // Show success toast
+
                 toast({
                     title: 'Login successful',
                     position: 'top',
@@ -47,7 +48,6 @@ const Login = () => {
         } catch (error) {
             console.error('Error:', error);
 
-            // Show error toast
             toast({
                 title: 'Login failed',
                 position: 'top',
