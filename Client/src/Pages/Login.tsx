@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { BsPerson, BsLock } from 'react-icons/bs';
 import '../Styles/login.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -14,7 +14,7 @@ const Login = () => {
     const { setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         try {

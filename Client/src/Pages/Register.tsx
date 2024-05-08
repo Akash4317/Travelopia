@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BsPerson, BsLock, BsMailbox2Flag } from 'react-icons/bs';
 import '../Styles/login.css'
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ const Register = () => {
     const toast = useToast();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         const data = { username, email, password };
         try {

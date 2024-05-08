@@ -1,25 +1,14 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContextProvider';
 import logo from '../assets/TravelopiaAva.jpg';
 import '../Styles/navbar.css';
 import { Button, Heading, useToast } from '@chakra-ui/react';
-import axios from 'axios';
 
-type AuthContextValue = {
-    auth: {
-        isAuth: boolean;
-        token: string | null;
-        role: string | null;
-    };
-    setAuth: React.Dispatch<React.SetStateAction<{
-        isAuth: boolean;
-        token: string | null;
-    }>>;
-};
 
-const Navbar: React.FC = () => {
-    const { auth, setAuth } = useContext<AuthContextValue>(AuthContext);
+
+const Navbar = () => {
+    const { auth, setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
     const toast = useToast();
 

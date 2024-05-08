@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import video from '../assets/video.mp4';
 import '../Styles/home.css';
 import { Button } from '@chakra-ui/react';
@@ -15,7 +15,7 @@ const Home = () => {
     const [budget, setBudget] = useState('');
     const toast = useToast();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
         if (destination && when && interest && duration && traveller && budget) {
             toast({
@@ -52,7 +52,7 @@ const Home = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:4500/enquiryRouter', data);
+            const response = await axios.post('http://localhost:4500/enquiry', data);
             console.log('Response:', response.data);
         } catch (error) {
             console.error('Error:', error);

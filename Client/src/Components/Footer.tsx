@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import logo from "../assets/TravelopiaAva.jpg";
 import "../Styles/footer.css"

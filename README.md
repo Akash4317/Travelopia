@@ -32,6 +32,9 @@ Fullstack ( MERN )
 |&nbsp;&nbsp;&nbsp;├─ package-lock.json<br>
 |&nbsp;&nbsp;&nbsp;└─ package.json<br>
 
+## Admin credentials
+ email:admin@gmail.com
+ password:admin
 
 ## Deplolyed App
 Frontend:https://663b6d8507d03e37201c0ffe--chic-naiad-047120.netlify.app/
