@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:4500/login', {
+            const response = await axios.post('https://traveopia-backend.onrender.com/login', {
                 email,
                 password
             });

@@ -5,7 +5,7 @@ const Admin = () => {
     // const [query, setQuery] = useState([]);
     useEffect(() => {
         const fetchquery = async () => {
-            const res = await fetch('http://localhost:4500/query');
+            const res = await fetch('https://traveopia-backend.onrender.com/query');
             console.log(res);
             const data = await res.json();
             // setQuery(data);

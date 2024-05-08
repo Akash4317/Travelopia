@@ -52,7 +52,7 @@ const Home = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:4500/enquiry', data);
+            const response = await axios.post('https://traveopia-backend.onrender.com/enquiry', data);
             console.log('Response:', response.data);
         } catch (error) {
             console.error('Error:', error);

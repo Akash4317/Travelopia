@@ -17,7 +17,7 @@ const Register = () => {
         e.preventDefault();
         const data = { username, email, password };
         try {
-            const response = await axios.post('http://localhost:4500/register', data, {
+            const response = await axios.post('https://traveopia-backend.onrender.com/register', data, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
