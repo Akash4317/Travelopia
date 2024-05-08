@@ -6,13 +6,7 @@ Travelopiar: Your Travel Companion! Unlock personalized trip suggestions tailore
 Fullstack ( MERN )
 
 ## Directory Structure
-
-├─ server/<br>
-│  ├─ config/<br>
-│  ├─ Model/<br>
-│  ├─ routes/<br>
-│  ├─ index.js<br>
-│  └─ package.json<br>
+|-Travelopia/<br>
 |─ client/<br>
 |&nbsp;&nbsp;&nbsp;├─ public/<br>
 |&nbsp;&nbsp;&nbsp;├─ src/<br>
@@ -33,11 +27,13 @@ Fullstack ( MERN )
 |&nbsp;&nbsp;&nbsp;└─ package.json<br>
 
 ## Admin credentials
- email:admin@gmail.com
- password:admin
+ - email: admin@gmail.com<br>
+ - password: admin<br>
 
 ## Deplolyed App
-Frontend:https://663b6d8507d03e37201c0ffe--chic-naiad-047120.netlify.app/
+Frontend: https://travelopia-akash.netlify.app/ <br>
+Backend: https://traveopia-backend.onrender.com  <br>
+- github https://github.com/Akash4317/traveopia_backend
 
 ## Features
 - Secure user registration and authentication
@@ -56,14 +52,21 @@ cd /travelopia/client
 npm install
 npm run dev
 ```
+# Navbar
 
-## Backend Installation & Getting Started
-```bash
-git clone https://github.com/Akash4317/traveopia_backend.git
-cd /travelopia_backend/server
-npm install
-npm run server
-```
+
+![Screenshot 2024-05-09 011633](https://github.com/Akash4317/Travelopia/assets/150064374/65529956-0531-4329-8573-56db4b94c18b)
+
+# Login
+
+![Screenshot 2024-05-09 011823](https://github.com/Akash4317/Travelopia/assets/150064374/c69ebe02-5cb6-48fe-88d9-197819e2a2c4)
+
+# HomePage
+![Screenshot 2024-05-09 011859](https://github.com/Akash4317/Travelopia/assets/150064374/013aee69-8405-401d-9121-db2eab62eeb9)
+
+# Footer
+
+![Screenshot 2024-05-09 011910](https://github.com/Akash4317/Travelopia/assets/150064374/f84e3343-32c4-4a28-ae3a-5a43676cb42d)
 
 ## Technology Used
 - Frontend: React.js,Typescript,chakra ui
