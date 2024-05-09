@@ -7,16 +7,17 @@ import { Button, Heading, useToast } from '@chakra-ui/react';
 
 
 
+
 const Navbar = () => {
     const { auth, setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
     const toast = useToast();
+    const username = localStorage.getItem('username');
 
     const handleLogout = () => {
         localStorage.clear();
         setAuth({ isAuth: false, token: null, role: null });
-        navigate('/login');
-        window.location.reload();
+        navigate('/');
     };
 
     const handleLoginToast = () => {
@@ -35,15 +36,16 @@ const Navbar = () => {
             <div>
                 <img src={logo} alt="Logo" className="logo" />
             </div>
-            {auth.isAuth ? <Link to="/" className="nav-link"><Heading as='h2' size='xl' >Home</Heading></Link> : <Link to="/" className="nav-link"><Heading as='h2' size='xl' onClick={handleLoginToast} >Home</Heading></Link>}
+            {auth.isAuth ? <Link to="/home" className="nav-link"><Heading as='h2' size='xl' >Home</Heading></Link> : <Link to="/home" className="nav-link"><Heading as='h2' size='xl' onClick={handleLoginToast} >Home</Heading></Link>}
             {auth.role === 'admin' && <Link to="/admin" className="nav-link"><Heading as='h2' size='xl' >Enqueries</Heading></Link>}
             <div>
+                {username && <Button mr={2}>Hello,{username}</Button>}
                 {auth.isAuth ?
                     <Button colorScheme='red' size='md' onClick={handleLogout}>
                         Logout
                     </Button>
                     :
-                    <Link to="/login" className="nav-link">
+                    <Link to="/" className="nav-link">
                         <Button colorScheme='green' size='md' >
                             Login/Signup
                         </Button>

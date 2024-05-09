@@ -1,23 +1,34 @@
 import { useState } from 'react';
 import video from '../assets/video.mp4';
 import '../Styles/home.css';
-import { Button } from '@chakra-ui/react';
+import { Button, Spinner } from '@chakra-ui/react';
 import Navbar from '../Components/Navbar';
 import { useToast } from '@chakra-ui/react';
 import axios from 'axios';
 
-const Home = () => {
-    const [destination, setDestination] = useState('');
-    const [when, setWhen] = useState('');
-    const [interest, setInterest] = useState('');
-    const [duration, setDuration] = useState('');
-    const [traveller, setTraveller] = useState('');
-    const [budget, setBudget] = useState('');
-    const toast = useToast();
+interface FormData {
+    destination: string;
+    when: string;
+    interest: string;
+    duration: string;
+    traveller: string;
+    budget: string;
+}
 
-    const handleSubmit = async (e: any) => {
+const Home: React.FC = () => {
+    const [destination, setDestination] = useState<string>('');
+    const [when, setWhen] = useState<string>('');
+    const [interest, setInterest] = useState<string>('');
+    const [duration, setDuration] = useState<string>('');
+    const [traveller, setTraveller] = useState<string>('');
+    const [budget, setBudget] = useState<string>('');
+    const toast = useToast();
+    const [loader, setLoader] = useState<boolean>(false);
+
+    const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (!destination || !when || !interest || !duration || !traveller || !budget) {
+            setLoader(false);
             toast({
                 title: 'Please fill all the required fields',
                 position: 'top',
@@ -25,8 +36,10 @@ const Home = () => {
                 duration: 3000,
                 isClosable: true,
             });
+            return;
         }
-        const data = {
+
+        const data: FormData = {
             destination,
             when,
             interest,
@@ -36,6 +49,7 @@ const Home = () => {
         };
 
         try {
+            setLoader(true);
             const token = localStorage.getItem('token');
             if (token) {
                 const response = await axios.post('https://traveopia-backend.onrender.com/enquiry', data, {
@@ -44,8 +58,9 @@ const Home = () => {
                     }
                 });
                 if (response.status === 201) {
+                    setLoader(false);
                     toast({
-                        title: 'Your query has been submitted , we will reach out to you soon',
+                        title: 'Your query has been submitted, we will reach out to you soon',
                         position: 'top',
                         status: 'success',
                         duration: 3000,
@@ -59,9 +74,11 @@ const Home = () => {
                     setBudget('');
                 }
             } else {
-                console.error('JWT token not found please login!');
+                setLoader(false);
+                console.error('JWT token not found. Please login!');
             }
         } catch (error) {
+            setLoader(false);
             console.error('Error:', error);
         }
     };
@@ -119,8 +136,16 @@ const Home = () => {
                         <option value="$10000+">$10000+</option>
                     </select>
                     <Button onClick={handleSubmit} colorScheme="#0a57a7" bg="#0a57a7" size="lg" mb="1">
-                        Create my trip now
+                        {loader ? (
+                            <>
+                                <Spinner size="sm" style={{ verticalAlign: 'middle', marginRight: '5px' }} />
+                                Creating trip...
+                            </>
+                        ) : (
+                            'Create my trip now'
+                        )}
                     </Button>
+
                 </form>
             </div>
         </div>

@@ -1,22 +1,23 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, FormEvent } from 'react';
 import { BsPerson, BsLock } from 'react-icons/bs';
 import '../Styles/login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import axios from 'axios';
-import { useToast } from '@chakra-ui/react';
+import { Spinner, useToast } from '@chakra-ui/react';
 import { AuthContext } from '../Context/AuthContextProvider';
 
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const Login: React.FC = () => {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const toast = useToast();
+    const [loader, setLoader] = useState<boolean>(false);
     const { setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        setLoader(true);
 
         try {
             const response = await axios.post('https://traveopia-backend.onrender.com/login', {
@@ -33,7 +34,6 @@ const Login = () => {
                     role
                 });
 
-
                 toast({
                     title: 'Login successful',
                     position: 'top',
@@ -42,12 +42,14 @@ const Login = () => {
                     isClosable: true,
                 });
 
+                localStorage.setItem('username', response.data.username);
                 localStorage.setItem('email', response.data.email);
-                navigate("/");
+                setLoader(false);
+                navigate("/home");
             }
         } catch (error) {
             console.error('Error:', error);
-
+            setLoader(false);
             toast({
                 title: 'Login failed',
                 position: 'top',
@@ -62,7 +64,6 @@ const Login = () => {
     return (
         <div className='login_form'>
             <div className='navbar_div'><Navbar /></div>
-
             <form onSubmit={handleSubmit} className="login-form">
                 <h1 className="login-title">Login</h1>
 
@@ -83,7 +84,13 @@ const Login = () => {
                     <a>Forgot Password?</a>
                 </div>
 
-                <button type="submit" className="login-btn">Login</button>
+                {loader ?
+                    <button type="submit" className="login-btn">
+                        <Spinner size='sm' style={{ verticalAlign: 'middle', marginRight: '5px' }} /> Login
+                    </button>
+                    :
+                    <button type="submit" className="login-btn"> Login</button>
+                }
 
                 <p className="register">
                     Don't have an account?

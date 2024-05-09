@@ -1,20 +1,22 @@
-import { useState } from 'react'
+import { useState, FormEvent } from 'react';
 import { BsPerson, BsLock, BsMailbox2Flag } from 'react-icons/bs';
 import '../Styles/login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import axios from 'axios';
-import { useToast } from '@chakra-ui/react';
+import { Spinner, useToast } from '@chakra-ui/react';
 
-const Register = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const Register: React.FC = () => {
+    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [loader, setLoader] = useState<boolean>(false);
     const toast = useToast();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoader(true);
         const data = { username, email, password };
         try {
             const response = await axios.post('https://traveopia-backend.onrender.com/register', data, {
@@ -30,10 +32,12 @@ const Register = () => {
                     duration: 3000,
                     isClosable: true,
                 });
-                navigate('/login');
+                setLoader(false);
+                navigate('/');
             }
         } catch (err) {
-            console.log(err);
+            console.error('Error:', err);
+            setLoader(false);
             toast({
                 title: 'Registration failed',
                 position: 'top',
@@ -43,9 +47,7 @@ const Register = () => {
                 isClosable: true,
             });
         }
-    }
-
-
+    };
 
     return (
         <div className='login_form'>
@@ -65,16 +67,21 @@ const Register = () => {
                     <BsLock className='icon' />
                     <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <button className="login-btn">Sign up</button>
+                {loader ?
+                    <button type="submit" className="login-btn">
+                        <Spinner size='sm' style={{ verticalAlign: 'middle', marginRight: '5px' }} /> Sign up
+                    </button>
+                    :
+                    <button type="submit" className="login-btn"> Sign up</button>
+                }
 
                 <p className="register">
                     Already have an account?
-                    <Link to={'/login'}><b>Login</b></Link>
+                    <Link to={'/'}><b>Login</b></Link>
                 </p>
             </form>
-        </div >
-
+        </div>
     );
 }
 
-export default Register
+export default Register;

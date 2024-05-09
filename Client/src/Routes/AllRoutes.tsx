@@ -10,9 +10,9 @@ const AllRoutes = () => {
     return (
         <div>
             <Routes>
-                <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+                <Route path="/" element={<Login />} />
+                <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
                 <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
-                <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
         </div>

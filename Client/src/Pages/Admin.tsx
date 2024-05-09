@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar';
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import "../Styles/admin.css";
 import axios from 'axios';
+import { Skeleton } from '@chakra-ui/react'
 
 interface Admin {
     _id: string;
@@ -10,18 +11,15 @@ interface Admin {
     createdAt: string;
     destination: string;
     duration: number;
-    email: string;
-    fullName: string;
     interest: string;
-    numberOfTravelers: number;
-    phone_number: string;
+    traveller: number;
     travelDate: string;
     updatedAt: string;
     userId: string;
 }
 
 const Admin: React.FC = () => {
-    const [enquiries, setEnquiries] = useState<Admin[]>([]); // Specify the type of enquiries
+    const [enquiries, setEnquiries] = useState<Admin[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState<boolean>(true);
     const [enquiriesPerPage] = useState(8);
@@ -63,8 +61,12 @@ const Admin: React.FC = () => {
             <Navbar />
             <Box className='enquiry-banner'></Box>
             {loading ? (
-                <Flex align="center" justify="center">
-                    <Text>Loading...</Text>
+                <Flex flexWrap="wrap" justifyContent="space-between" className='enquiries-row'>
+                    {[...Array(8)].map((_, index) => (
+                        <Box key={index} width={{ base: '100%', sm: 'calc(50% - 8px)', lg: 'calc(25% - 16px)' }} marginBottom={4}>
+                            <Skeleton height="150px" />
+                        </Box>
+                    ))}
                 </Flex>
             ) : (
                 <>
@@ -75,8 +77,8 @@ const Admin: React.FC = () => {
                                     <Text fontSize="xl" fontWeight="bold" mb={2}>Trip to {enquiry.destination}</Text>
                                     <Text><strong>Interest:</strong> {enquiry.interest}</Text>
                                     <Text><strong>Duration:</strong> {enquiry.duration} days</Text>
-                                    <Text><strong>Travelers:</strong> {enquiry.numberOfTravelers}</Text>
-                                    <Text><strong>Email:</strong> {enquiry.email}</Text>
+                                    <Text><strong>Travelers:</strong> {enquiry.traveller}</Text>
+
                                     <Text><strong>UserID:</strong> {enquiry.userId}</Text>
                                     <Text><strong>Travel Date:</strong> {new Date(enquiry.travelDate).toLocaleDateString()}</Text>
                                     <Text><strong>Request Date:</strong> {new Date(enquiry.createdAt).toLocaleDateString()}</Text>

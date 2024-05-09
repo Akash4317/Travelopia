@@ -83,16 +83,15 @@
 
 @media (max-width: 768px) {
     .foot_one {
-        flex-direction: column;
+        display: flex;
         align-items: center;
     }
     .about {
-        margin-top: 25px;
-        max-width: 80%;
+        display: flex;
         font-size: large;
     }
     .akash-logo {
-        width: 300px;
+        width: 100px;
         height: auto;
     }
     .contact th {
@@ -109,5 +108,17 @@
     }
     .box .social-icon {
         font-size: 22px;
+    }
+}
+
+@media (max-width: 510px) {
+    .about {
+        display: none;
+    }
+    .credit {
+        padding: 0;
+        flex-direction: column;
+        gap: 25px;
+        margin-top: 25px;
     }
 }
