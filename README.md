@@ -35,6 +35,9 @@ Frontend: https://travelopia-akash.netlify.app/ <br>
 Backend: https://traveopia-backend.onrender.com  <br>
 - github https://github.com/Akash4317/traveopia_backend
 
+## Video Walkthrough of Application
+https://drive.google.com/file/d/1sjvYdWS4rkm5oZDO6Y00R6sozWWPgIAW/view?usp=sharing
+
 ## Features
 - Secure user registration and authentication
 - Personalizable user profiles with pictures and information
