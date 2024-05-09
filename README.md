@@ -54,8 +54,7 @@ npm run dev
 ```
 # Navbar
 
-
-![Screenshot 2024-05-09 011633](https://github.com/Akash4317/Travelopia/assets/150064374/65529956-0531-4329-8573-56db4b94c18b)
+![Screenshot 2024-05-09 122128](https://github.com/Akash4317/Travelopia/assets/150064374/eab0c7da-3aa5-4c24-9e85-ac9f87656f55)
 
 # Login
 
@@ -63,6 +62,10 @@ npm run dev
 
 # HomePage
 ![Screenshot 2024-05-09 011859](https://github.com/Akash4317/Travelopia/assets/150064374/013aee69-8405-401d-9121-db2eab62eeb9)
+
+# Admin_DashBoard
+![Screenshot 2024-05-09 121916](https://github.com/Akash4317/Travelopia/assets/150064374/b59dd3bc-f0cc-4d4e-9cf4-d16003c574c2)
+d
 
 # Footer
 
